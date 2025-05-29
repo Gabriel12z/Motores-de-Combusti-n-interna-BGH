@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Interpolación Lineal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light p-5">
+
+
+
+  <a href="index.html" class="btn btn-primary btn-custom">Regresar</a>
+
+  <div class="container">
+    <h2 class="text-center mb-5">Interpolación Lineal</h2>
+
+    <!-- Repetimos la tabla 3 veces con ID diferentes -->
+    <div class="row g-4">
+      <!-- Tabla 1 -->
+      <div class="col-md-4">
+        <div class="card border-primary">
+          <div class="card-header bg-primary text-white text-center">Presion Volumen Relativo</div>
+          <div class="card-body">
+            <table class="table table-bordered table-hover">
+              <thead class="table-dark text-center">
+                <tr>
+                  <th>Temperatura (Y)</th>
+                  <th>Energía o VR (X)</th>
+                </tr>
+              </thead>
+              <tbody class="text-center">
+                <tr>
+                  <td><input id="y0-1" type="number" class="form-control" placeholder="Y₀"></td>
+                  <td><input id="x0-1" type="number" class="form-control" placeholder="X₀"></td>
+                </tr>
+                <tr>
+                  <td><span id="yx-1" class="form-control bg-white text-dark">Yₓ</span></td>
+                  <td><input id="x-1" type="number" class="form-control" placeholder="X"></td>
+                </tr>
+                <tr>
+                  <td><input id="y1-1" type="number" class="form-control" placeholder="Y₁"></td>
+                  <td><input id="x1-1" type="number" class="form-control" placeholder="X₁"></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="text-center">
+              <button onclick="calcularYx(1)" class="btn btn-primary mt-2">Calcular Yₓ</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabla 2 -->
+      <div class="col-md-4">
+        <div class="card border-primary">
+          <div class="card-header bg-primary text-white text-center">Temperatura Volumen Relativo</div>
+          <div class="card-body">
+            <table class="table table-bordered table-hover">
+              <thead class="table-dark text-center">
+                <tr>
+                  <th>Temperatura (Y)</th>
+                  <th>Energía o VR (X)</th>
+                </tr>
+              </thead>
+              <tbody class="text-center">
+                <tr>
+                  <td><input id="y0-2" type="number" class="form-control" placeholder="Y₀"></td>
+                  <td><input id="x0-2" type="number" class="form-control" placeholder="X₀"></td>
+                </tr>
+                <tr>
+                  <td><span id="yx-2" class="form-control bg-white text-dark">Yₓ</span></td>
+                  <td><input id="x-2" type="number" class="form-control" placeholder="X"></td>
+                </tr>
+                <tr>
+                  <td><input id="y1-2" type="number" class="form-control" placeholder="Y₁"></td>
+                  <td><input id="x1-2" type="number" class="form-control" placeholder="X₁"></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="text-center">
+              <button onclick="calcularYx(2)" class="btn btn-primary mt-2">Calcular Yₓ</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabla 3 -->
+      <div class="col-md-4">
+        <div class="card border-primary">
+          <div class="card-header bg-primary text-white text-center">Temperatura Entropia</div>
+          <div class="card-body">
+            <table class="table table-bordered table-hover">
+              <thead class="table-dark text-center">
+                <tr>
+                  <th>Temperatura (Y)</th>
+                  <th>Energía o VR (X)</th>
+                </tr>
+              </thead>
+              <tbody class="text-center">
+                <tr>
+                  <td><input id="y0-3" type="number" class="form-control" placeholder="Y₀"></td>
+                  <td><input id="x0-3" type="number" class="form-control" placeholder="X₀"></td>
+                </tr>
+                <tr>
+                  <td><span id="yx-3" class="form-control bg-white text-dark">Yₓ</span></td>
+                  <td><input id="x-3" type="number" class="form-control" placeholder="X"></td>
+                </tr>
+                <tr>
+                  <td><input id="y1-3" type="number" class="form-control" placeholder="Y₁"></td>
+                  <td><input id="x1-3" type="number" class="form-control" placeholder="X₁"></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="text-center">
+              <button onclick="calcularYx(3)" class="btn btn-primary mt-2">Calcular Yₓ</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script JavaScript reutilizable -->
+  <script>
+    function calcularYx(id) {
+      const x0 = parseFloat(document.getElementById(`x0-${id}`).value);
+      const x1 = parseFloat(document.getElementById(`x1-${id}`).value);
+      const x = parseFloat(document.getElementById(`x-${id}`).value);
+      const y0 = parseFloat(document.getElementById(`y0-${id}`).value);
+      const y1 = parseFloat(document.getElementById(`y1-${id}`).value);
+
+      if ([x0, x1, x, y0, y1].some(isNaN)) {
+        alert(`Completa todos los campos de la tabla ${id}.`);
+        return;
+      }
+
+      if (x1 === x0) {
+        alert("X₀ y X₁ no pueden ser iguales (división por cero).");
+        return;
+      }
+
+      const yx = y0 + ((x - x0) / (x1 - x0)) * (y1 - y0);
+      document.getElementById(`yx-${id}`).textContent = yx.toFixed(4);
+    }
+  </script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mecánica - Motores de Combustión</title>
+  <link rel="stylesheet" href="/css/diseño.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <a href="index.html" class="btn btn-primary btn-custom">Regresar</a>
+
+
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container my-4">
+  <h3 class="mb-4">Unidades De Medida</h3>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped text-center align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th>Magnitud</th>
+          <th>Unidad</th>
+          <th>Abreviación</th>
+          <th>Sistema</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Longitud</td><td>Metro</td><td>m</td><td>Internacional</td></tr>
+        <tr><td>Longitud</td><td>Pulgada</td><td>in</td><td>Inglés</td></tr>
+        <tr><td>Longitud</td><td>Pie</td><td>ft</td><td>Inglés</td></tr>
+        <tr><td>Área</td><td>Metro cuadrado</td><td>m²</td><td>Internacional</td></tr>
+        <tr><td>Área</td><td>Pie cuadrado</td><td>ft²</td><td>Inglés</td></tr>
+        <tr><td>Volumen</td><td>Litro</td><td>L</td><td>Internacional</td></tr>
+        <tr><td>Volumen</td><td>Metro cúbico</td><td>m³</td><td>Internacional</td></tr>
+        <tr><td>Volumen</td><td>Pies cúbicos</td><td>ft³</td><td>Inglés</td></tr>
+        <tr><td>Volumen</td><td>Galón</td><td>gal</td><td>Inglés</td></tr>
+        <tr><td>Temperatura</td><td>Kelvin</td><td>K</td><td>Internacional</td></tr>
+        <tr><td>Temperatura</td><td>Grado Celsius</td><td>°C</td><td>Internacional</td></tr>
+        <tr><td>Temperatura</td><td>Grado Fahrenheit</td><td>°F</td><td>Inglés</td></tr>
+        <tr><td>Presión</td><td>Pascal</td><td>Pa</td><td>Internacional</td></tr>
+        <tr><td>Presión</td><td>Kilopascal</td><td>kPa</td><td>Internacional</td></tr>
+        <tr><td>Presión</td><td>Bar</td><td>bar</td><td>Internacional</td></tr>
+        <tr><td>Presión</td><td>Libra por pulgada cuadrada</td><td>psi</td><td>Inglés</td></tr>
+        <tr><td>Presión</td><td>Atmósfera</td><td>atm</td><td>Común</td></tr>
+        <tr><td>Masa</td><td>Kilogramo</td><td>kg</td><td>Internacional</td></tr>
+        <tr><td>Masa</td><td>Gramo</td><td>g</td><td>Internacional</td></tr>
+        <tr><td>Masa</td><td>Libra</td><td>lb</td><td>Inglés</td></tr>
+        <tr><td>Masa</td><td>Slug</td><td>slug</td><td>Inglés</td></tr>
+        <tr><td>Fuerza</td><td>Newton</td><td>N</td><td>Internacional</td></tr>
+        <tr><td>Fuerza</td><td>Libra-fuerza</td><td>lbf</td><td>Inglés</td></tr>
+        <tr><td>Trabajo / Energía / Calor</td><td>Joule</td><td>J</td><td>Internacional</td></tr>
+        <tr><td>Trabajo / Energía / Calor</td><td>Kilojoule</td><td>kJ</td><td>Internacional</td></tr>
+        <tr><td>Trabajo / Energía / Calor</td><td>BTU</td><td>BTU</td><td>Inglés</td></tr>
+        <tr><td>Trabajo / Energía</td><td>Caloría</td><td>cal</td><td>Común</td></tr>
+        <tr><td>Potencia</td><td>Watt</td><td>W</td><td>Internacional</td></tr>
+        <tr><td>Potencia</td><td>Caballo de fuerza</td><td>hp</td><td>Inglés</td></tr>
+        <tr><td>Velocidad</td><td>Metro por segundo</td><td>m/s</td><td>Internacional</td></tr>
+        <tr><td>Velocidad</td><td>Kilómetro por hora</td><td>km/h</td><td>Internacional</td></tr>
+        <tr><td>Velocidad</td><td>Pies por segundo</td><td>ft/s</td><td>Inglés</td></tr>
+        <tr><td>Velocidad</td><td>Millas por hora</td><td>mph</td><td>Inglés</td></tr>
+        <tr><td>Aceleración</td><td>Metro por segundo al cuadrado</td><td>m/s²</td><td>Internacional</td></tr>
+        <tr><td>Aceleración</td><td>Pie por segundo al cuadrado</td><td>ft/s²</td><td>Inglés</td></tr>
+        <tr><td>Densidad</td><td>Kilogramo por metro cúbico</td><td>kg/m³</td><td>Internacional</td></tr>
+        <tr><td>Densidad</td><td>Libra por pie cúbico</td><td>lb/ft³</td><td>Inglés</td></tr>
+        <tr><td>Capacidad calorífica</td><td>Joule por kilogramo kelvin</td><td>J/kg·K</td><td>Internacional</td></tr>
+        <tr><td>Capacidad calorífica</td><td>BTU por libra grado Fahrenheit</td><td>BTU/lb·°F</td><td>Inglés</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+  <div class="container">
+    <h2>Área del cilindro</h2>
+    <label for="diametro">Diámetro del cilindro (D en cm):</label>
+    <input type="number" id="diametro" placeholder="Ingresa el diámetro" step="any" />
+    <button onclick="calcularArea()">Calcular Área</button>
+<div class="resultado" id="resultado"></div>
+<button onclick="mostrarConversionesArea()" id="btnConversionesArea" style="display: none;">Mostrar conversiones</button>
+<div id="conversionesArea" class="resultado" style="display: none;"></div>
+
+  </div>
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+<h3>Diámetro del Cilindro</h3>
+
+<label for="vhCilindro">Volumen de la cámara (VH) en cm³:</label>
+<input type="number" id="vhCilindro" placeholder="Ej: 1600" step="any"><br>
+
+<label for="sCilindro">Carrera (S) en cm:</label>
+<input type="number" id="sCilindro" placeholder="Ej: 8.5" step="any"><br>
+
+<label for="iCilindro">Número de cilindros (i):</label>
+<input type="number" id="iCilindro" placeholder="Ej: 4"><br>
+
+<button onclick="calcularDiametroCilindro()">Calcular Diámetro</button>
+<button onclick="mostrarConversionesDiametro()">Mostrar conversiones</button>
+
+<div id="resultadoDiametroCilindro"></div>
+<div id="conversionDiametroCilindro" style="white-space: pre-line;"></div>
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+<hr>
+<h2>Cilindrada Unitaria</h2>
+
+<label for="diametroCilindro">Diámetro del cilindro (D en cm):</label>
+<input type="number" id="diametroCilindro" placeholder="Ingresa el diámetro" step="any" /><br/>
+
+<label for="longitud">Longitud de carrera (L en cm):</label>
+<input type="number" id="longitud" placeholder="Ingresa la longitud de carrera" step="any" /><br/>
+
+<button onclick="calcularCilindrada()">Calcular Cilindrada Unitaria</button>
+
+<div class="resultado" id="resultadoVolumen"></div>
+<div class="resultado" id="conversionVolumen"></div>
+
+
+<hr>
+---------------------------------------------------------------------------------------------------------------------------------
+
+<hr>
+
+<h2>Cilindrada Total</h2>
+
+<label for="diametroTotal">Diámetro del cilindro (D en cm):</label>
+<input type="number" id="diametroTotal" placeholder="Ingresa el diámetro" step="any" /><br/>
+
+<label for="longitudTotal">Longitud de carrera (L en cm):</label>
+<input type="number" id="longitudTotal" placeholder="Ingresa la longitud de carrera" step="any" /><br/>
+
+<label for="cilindros">Número de cilindros (n):</label>
+<input type="number" id="cilindros" placeholder="Ingresa el número de cilindros" step="1" /><br/>
+
+<button onclick="calcularTotal()">Calcular Cilindrada Total</button>
+<div class="resultado" id="resultadoTotal"></div>
+<div class="resultado" id="conversionTotal"></div>
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+<h3>Cálculo de la Mezcla del combustible (Relación Aire/Combustible) (A/F)</h3>
+
+  <label for="aire">Masa de aire (g):</label>
+  <input type="number" id="aire" placeholder="Ej: 1400" step="any"><br>
+
+  <label for="combustible">Masa de combustible (g):</label>
+  <input type="number" id="combustible" placeholder="Ej: 100" step="any"><br>
+
+  <button onclick="calcularRelacionAF()">Calcular Relación A/F</button>
+  <button onclick="mostrarConversionAF()">Mostrar conversiones</button>
+
+  <div id="resultadoAF"></div>
+  <div id="conversionAF" style="white-space: pre-line;"></div>
+---------------------------------------------------------------------------------------------------------------------------------
+
+    <h2>Relación carrera-diámetro</h2>
+    <label for="relacionLD_L">Longitud de carrera (L en cm):</label>
+    <input type="number" id="relacionLD_L" placeholder="Ingresa la longitud de carrera" step="any" />
+
+    <label for="relacionLD_D">Diámetro del cilindro (D en cm):</label>
+    <input type="number" id="relacionLD_D" placeholder="Ingresa el diámetro del cilindro" step="any" />
+
+<button onclick="calcularRelacionLD()">Calcular Relación L/D</button>
+<div class="resultado" id="resultadoLD"></div>
+<div class="resultado" id="conversionLD"></div>
+---------------------------------------------------------------------------------------------------------------------------------
+    <hr>
+
+    <h2>Litros aspirados por minuto (LPM)</h2>
+    <label for="vt_lpm">Cilindrada total (cm³):</label>
+    <input type="number" id="vt_lpm" placeholder="Ingresa la cilindrada total" step="any" />
+
+    <label for="rpm">Revoluciones por minuto (RPM):</label>
+    <input type="number" id="rpm" placeholder="Ingresa las RPM" step="any" />
+
+<button onclick="calcularLPM()">Calcular LPM</button>
+<div class="resultado" id="resultadoLPM"></div>
+<div class="resultado" id="conversionLPM"></div>
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+<h3>Aplanado de Culata</h3>
+
+<label for="sCulata">Carrera del pistón (S) en cm:</label>
+<input type="number" id="sCulata" placeholder="Ej: 8.5" step="any"><br>
+
+<label for="eOriginal">Relación de compresión original (εₒ):</label>
+<input type="number" id="eOriginal" placeholder="Ej: 9.5" step="any"><br>
+
+<label for="eNueva">Relación de compresión nueva (εₙ):</label>
+<input type="number" id="eNueva" placeholder="Ej: 10.5" step="any"><br>
+
+<button onclick="calcularAplanadoCulata()">Calcular Aplanado</button>
+<button onclick="mostrarConversionAplanado()">Mostrar conversiones</button>
+
+<div id="resultadoAplanado"></div>
+<div id="conversionAplanado" style="white-space: pre-line;"></div>
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+<h3>Longitud de Carrera</h3>
+<label for="vhCarrera">Volumen del cilindro (VH) en cm³:</label>
+<input type="number" id="vhCarrera" placeholder="Ej: 500" step="any"><br>
+
+<label for="areaCarrera">Área del cilindro (A) en cm²:</label>
+<input type="number" id="areaCarrera" placeholder="Ej: 78.5" step="any"><br>
+
+<button onclick="calcularLongitudCarrera()">Calcular Longitud de Carrera</button>
+<button onclick="mostrarConversionCarrera()">Mostrar conversiones</button>
+
+<div id="resultadoCarrera"></div>
+<div id="conversionCarrera" style="white-space: pre-line;"></div>
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+        <hr>
+
+    <h2>Perímetro del cigüeñal</h2>
+    <label for="radio">Radio del cigüeñal (cm):</label>
+    <input type="number" id="radio" placeholder="Ingresa el radio del cigüeñal" step="any" />
+
+<button onclick="calcularPerimetro()">Calcular perímetro</button>
+<div class="resultado" id="resultadoPerimetro"></div>
+<div class="resultado" id="conversionPerimetro"></div>
+-------------------------------------------------------------------------------------------------------------------------------
+        <hr>
+
+    <h2>Radio del cigüeñal</h2>
+    <label for="carreraRadio">Carrera del pistón (cm):</label>
+    <input type="number" id="carreraRadio" placeholder="Ingresa la carrera del pistón" step="any" />
+
+<button onclick="calcularRadio()">Calcular radio</button>
+<div class="resultado" id="resultadoRadio"></div>
+<div class="resultado" id="conversionRadio"></div>
+-----------------------------------------------------------------------------------------------------------------------
+        <hr>
+
+    <h2>Presión Absoluta</h2>
+
+    <label for="patm">Presión atmosférica (kPa):</label>
+    <input type="number" id="patm" placeholder="Ej: 101.3" step="any" />
+
+    <label for="pman">Presión manométrica (kPa):</label>
+    <input type="number" id="pman" placeholder="Ingresa la presión manométrica" step="any" />
+
+<button onclick="calcularPresionAbsoluta()">Calcular Presión Absoluta</button>
+<div class="resultado" id="resultadoPresionAbsoluta"></div>
+<div class="resultado" id="conversionPresionAbsoluta"></div>
+-----------------------------------------------------------------------------------------------------------------------
+
+ <label for="pman">Presión manométrica:</label><br>
+<input type="number" id="pman" placeholder="Ej: 150"><br>
+
+<label for="patm">Presión atmosférica:</label><br>
+<input type="number" id="patm" placeholder="Ej: 101.325"><br>
+
+<label for="unidadGeneral">Unidad:</label>
+<select id="unidadGeneral">
+  <option value="Pa">Pa</option>
+  <option value="kPa">kPa</option>
+  <option value="bar">bar</option>
+  <option value="psi">psi</option>
+</select><br>
+
+<button onclick="calcularSobrepresion()">Calcular Sobrepresión</button>
+
+<p id="resultadoSobrepresion"></p>
+
+-----------------------------------------------------------------------------------------------------------------------
+<div>
+  <h3>Calculadora de Depresión</h3>
+  <label for="patmDep">Presión atmosférica (kPa): </label>
+  <input type="number" id="patmDep" placeholder="Ej: 101.3" />
+  <br/>
+  <label for="pcilindroDep">Presión en el cilindro (kPa): </label>
+  <input type="number" id="pcilindroDep" placeholder="Ej: 80" />
+  <br/>
+<button onclick="calcularDepresion()">Calcular Depresión</button>
+<div class="resultado" id="resultadoDep"></div>
+<div class="resultado" id="conversionDepresion"></div>
+</div>
+-----------------------------------------------------------------------------------------------------------------------
+<div>
+  <h3>Calculadora de Eficiencia Mecánica</h3>
+  <label for="pUtil">Potencia útil (kW): </label>
+  <input type="number" id="pUtil" placeholder="Ej: 80" />
+  <br/>
+  <label for="pDesarrollada">Potencia desarrollada (kW): </label>
+  <input type="number" id="pDesarrollada" placeholder="Ej: 100" />
+  <br/>
+  <button onclick="calcularEficiencia()">Calcular Eficiencia Mecánica</button>
+  <p id="resultadoEficiencia"></p>
+  <div class="resultado" id="conversionEficiencia"></div>
+</div>
+-----------------------------------------------------------------------------------------------------------------------
+ <h3>Cálculo del Par Motor</h3>
+
+  <label for="potencia">Potencia (P) en watts (W):</label>
+  <input type="number" id="potencia" placeholder="Ej: 10000" step="any"><br>
+
+  <label for="omega">Velocidad angular (ω) en rad/s:</label>
+  <input type="number" id="omega" placeholder="Ej: 314.16" step="any"><br>
+
+  <button onclick="calcularParMotor()">Calcular Par Motor</button>
+  <button onclick="mostrarConversionPar()">Mostrar conversiones</button>
+
+  <div id="resultadoPar"></div>
+  <div id="conversionPar" style="white-space: pre-line;"></div>
+
+-----------------------------------------------------------------------------------------------------------------------
+
+<div>
+  <h3>Calculadora de Potencia</h3>
+  <label for="torquePotencia">Torque (Nm): </label>
+  <input type="number" id="torquePotencia" placeholder="Ej: 150" />
+  <br/>
+  <label for="rpmPotencia">Velocidad (rpm): </label>
+  <input type="number" id="rpmPotencia" placeholder="Ej: 3000" />
+  <br/>
+  <button onclick="calcularPotencia()">Calcular Potencia</button>
+
+<button onclick="mostrarConversiones()">Mostrar Conversiones</button>
+  <p id="resultadoPotencia"></p>
+<div id="resultadoConversiones" style="white-space: pre-line;"></div>
+</div>
+-----------------------------------------------------------------------------------------------------------------------
+
+<div>
+  <h3>Calculadora de Trabajo</h3>
+  <label for="presionTrabajo">Presión promedio (kPa): </label>
+  <input type="number" id="presionTrabajo" placeholder="Ej: 800" />
+  <br/>
+  <label for="volumenTrabajo">Volumen desplazado (litros): </label>
+  <input type="number" id="volumenTrabajo" placeholder="Ej: 0.5" />
+  <br/>
+  <button onclick="calcularTrabajo()">Calcular Trabajo</button>
+<button onclick="mostrarConversionesTrabajo()">Mostrar conversiones</button>
+
+<div id="resultadoTrabajo"></div>
+<div id="resultadoConversionTrabajo" style="white-space: pre-line;"></div>
+</div>
+-----------------------------------------------------------------------------------------------------------------------
+
+
+<div>
+  <h3>Calculadora de Potencia Útil</h3>
+  <label for="torqueUtil">Torque (Nm): </label>
+  <input type="number" id="torqueUtil" placeholder="Ej: 150" />
+  <br/>
+  <label for="rpmUtil">Velocidad (rpm): </label>
+  <input type="number" id="rpmUtil" placeholder="Ej: 3000" />
+  <br/>
+<button onclick="calcularPotenciaUtil()">Calcular Potencia Útil</button>
+<button onclick="mostrarConversionesPotenciaUtil()">Mostrar conversiones</button>
+<div class="resultado" id="resultadoPotenciaUtil"></div>
+<div class="resultado" id="resultadoConversionPotenciaUtil" style="white-space: pre-line;"></div>
+</div>
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+<div>
+  <h3>Calculadora de Potencia Real</h3>
+
+  <label for="torqueReal">Torque (Nm): </label>
+  <input type="number" id="torqueReal" placeholder="Ej: 150" />
+  <br/>
+
+  <label for="rpmReal">Velocidad angular (RPM): </label>
+  <input type="number" id="rpmReal" placeholder="Ej: 3000" />
+  <br/>
+
+  <button onclick="calcularPotenciaReal()">Calcular Potencia Real</button>
+  <button onclick="mostrarConversionesPotenciaReal()">Mostrar conversiones</button>
+
+  <p id="resultadoPotenciaReal"></p>
+  <div id="resultadoConversionPotenciaReal" style="white-space: pre-line;"></div>
+</div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="/js/script1.js"></script>
+</body>
+</html>

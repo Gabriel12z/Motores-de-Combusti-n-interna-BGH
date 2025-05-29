@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cálculos de Parte Térmica - Motores de Combustión Interna</title>
+  <link rel="stylesheet" href="/css/diseño.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<a href="index.html" class="btn btn-primary btn-custom">Regresar</a>
+<h1>Cálculos Térmicos - Motores de Combustión Interna</h1>
+<!-- Incluye Bootstrap 5 si aún no está en tu proyecto -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container my-4">
+  <h4 class="text-primary mb-3">Unidades De Medida</h4>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle text-center">
+      <thead class="bg-primary text-white">
+        <tr>
+          <th>Magnitud</th>
+          <th>Unidad</th>
+          <th>Abreviación</th>
+          <th>Sistema</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Temperatura</td>
+          <td>Kelvin</td>
+          <td>K</td>
+          <td>Sistema Internacional (SI)</td>
+        </tr>
+        <tr>
+          <td>Temperatura</td>
+          <td>Grado Fahrenheit</td>
+          <td>°F</td>
+          <td>Sistema Inglés (Imperial)</td>
+        </tr>
+        <tr>
+          <td>Energía / Calor / Trabajo</td>
+          <td>Joule</td>
+          <td>J</td>
+          <td>Sistema Internacional (SI)</td>
+        </tr>
+        <tr>
+          <td>Energía / Calor</td>
+          <td>BTU (unidad térmica británica)</td>
+          <td>BTU</td>
+          <td>Sistema Inglés (Imperial)</td>
+        </tr>
+        <tr>
+          <td>Presión</td>
+          <td>Pascal</td>
+          <td>Pa</td>
+          <td>Sistema Internacional (SI)</td>
+        </tr>
+        <tr>
+          <td>Presión</td>
+          <td>Kilopascal</td>
+          <td>kPa</td>
+          <td>Sistema Internacional (SI)</td>
+        </tr>
+        <tr>
+          <td>Presión</td>
+          <td>Libra por pulgada cuadrada</td>
+          <td>psi</td>
+          <td>Sistema Inglés (Imperial)</td>
+        </tr>
+        <tr>
+          <td>Volumen</td>
+          <td>Litro</td>
+          <td>L</td>
+          <td>Sistema Internacional (SI)</td>
+        </tr>
+        <tr>
+          <td>Volumen</td>
+          <td>Metro cúbico</td>
+          <td>m³</td>
+          <td>Sistema Internacional (SI)</td>
+        </tr>
+        <tr>
+          <td>Volumen</td>
+          <td>Pies cúbicos</td>
+          <td>ft³</td>
+          <td>Sistema Inglés (Imperial)</td>
+        </tr>
+        <tr>
+          <td>Masa</td>
+          <td>Kilogramo</td>
+          <td>kg</td>
+          <td>Sistema Internacional (SI)</td>
+        </tr>
+        <tr>
+          <td>Masa</td>
+          <td>Libra</td>
+          <td>lb</td>
+          <td>Sistema Inglés (Imperial)</td>
+        </tr>
+        <tr>
+          <td>Capacidad calorífica</td>
+          <td>Joule por kilogramo kelvin</td>
+          <td>J/kg·K</td>
+          <td>Sistema Internacional (SI)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div>
+  <h3>Compresión 1-2 (Proceso 1–2)</h3>
+  <label for="t1">Temperatura T₁ (K): </label>
+  <input type="number" id="t1" placeholder="Ej: 300" />
+  <br/>
+  <label for="rc">Relación de compresión r<sub>c</sub>: </label>
+  <input type="number" id="rc" placeholder="Ej: 10" />
+  <br/>
+  <label for="gamma">γ (C<sub>p</sub>/C<sub>v</sub>): </label>
+  <input type="number" id="gamma" placeholder="Ej: 1.4" value="1.4" />
+  <br/>
+  <button onclick="calcularT2()">Calcular T₂</button>
+  <p id="resultadoT2"></p>
+<button onclick="mostrarConversionesT2()">Mostrar conversiones</button>
+<div id="conversionesT2" style="display: none;"></div>
+
+</div>
+
+------------------------------------------------------------------------------------------------
+
+<div>
+  <h3>Calculadora de Temperatura T2 (T₂)</h3>
+  <label for="t1">Temperatura inicial T₁ (K): </label>
+  <input type="number" id="t1" placeholder="Ej: 300" />
+  <br/>
+  <label for="rcTemp">Relación de compresión r_c: </label>
+  <input type="number" id="rcTemp" step="0.01" placeholder="Ej: 8" />
+  <br/>
+  <label for="kTemp">Coeficiente adiabático k: </label>
+  <input type="number" id="kTemp" step="0.01" placeholder="Ej: 1.4" />
+  <br/>
+  <button onclick="calcularTemperaturaCompresion()">Calcular T₂</button>
+<p id="resultadoTemperaturaCompresion"></p>
+<button onclick="mostrarConversionesTemperaturaCompresion()">Mostrar conversiones</button>
+<div id="conversionesTemperaturaCompresion" style="display: none;"></div>
+
+</div>
+--------------------------------------------------------------------------------------------------------------------------------
+
+<div>
+  <h3>Eficiencia Térmica </h3>
+  <label for="rcOtto">Relación de compresión r<sub>c</sub>: </label>
+  <input type="number" id="rcOtto" placeholder="Ej: 10" />
+  <br/>
+  <label for="gammaOtto">γ (C<sub>p</sub>/C<sub>v</sub>): </label>
+  <input type="number" id="gammaOtto" placeholder="Ej: 1.4" value="1.4" />
+  <br/>
+  <button onclick="calcularEficienciaOtto()">Calcular Eficiencia Térmica</button>
+<p id="resultadoEficienciaOtto"></p>
+<button onclick="mostrarConversionesEficienciaOtto()">Mostrar conversiones</button>
+<div id="conversionesEficienciaOtto" style="display: none;"></div>
+
+</div>
+-------------------------------------------------------------------------------------------------------
+
+
+<div>
+  <h3>Calculadora de Masa del Aire</h3>
+  <label for="presionAire">Presión absoluta P (kPa): </label>
+  <input type="number" id="presionAire" placeholder="Ej: 101" />
+  <br/>
+  <label for="volumenCilindro">Volumen del cilindro V (litros): </label>
+  <input type="number" id="volumenCilindro" placeholder="Ej: 0.5" />
+  <br/>
+  <label for="temperaturaAire">Temperatura T (K): </label>
+  <input type="number" id="temperaturaAire" placeholder="Ej: 300" />
+  <br/>
+  <button onclick="calcularMasaAire()">Calcular Masa del Aire</button>
+<p id="resultadoMasaAire"></p>
+<button onclick="mostrarConversionesMasaAire()">Mostrar conversiones</button>
+<div id="conversionesMasaAire" style="display: none;"></div>
+</div>
+-------------------------------------------------------------------------------------------------------------------------------
+<div>
+  <h3>Calculadora de Relación de Compresión</h3>
+  <label for="volumenMaximo">Volumen máximo V₁ (litros): </label>
+  <input type="number" id="volumenMaximo" placeholder="Ej: 0.5" />
+  <br/>
+  <label for="volumenMinimo">Volumen mínimo V₂ (litros): </label>
+  <input type="number" id="volumenMinimo" placeholder="Ej: 0.05" />
+  <br/>
+  <button onclick="calcularRelacionCompresion()">Calcular Relación de Compresión</button>
+<p id="resultadoRelacionCompresion"></p>
+<button onclick="mostrarConversionesRelacionCompresion()">Mostrar conversiones</button>
+<div id="conversionesRelacionCompresion" style="display: none;"></div>
+
+</div>
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+<div>
+  <h3>Calculadora de Presión Media Específica (PME)</h3>
+  <label for="trabajoCiclo">Trabajo por ciclo W (J): </label>
+  <input type="number" id="trabajoCiclo" placeholder="Ej: 500" />
+  <br/>
+  <label for="volumenBarrido">Volumen desplazado V_d (litros): </label>
+  <input type="number" id="volumenBarrido" placeholder="Ej: 0.5" />
+  <br/>
+  <button onclick="calcularPME()">Calcular PME</button>
+<p id="resultadoPME"></p>
+<button onclick="mostrarConversionesPME()">Mostrar conversiones</button>
+<div id="conversionesPME" style="display: none;"></div>
+
+</div>
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+<div>
+  <h3>Calculadora de Trabajo Neto (Ciclo Otto)</h3>
+  
+  <label for="metodoTrabajo">Selecciona el método:</label>
+  <select id="metodoTrabajo" onchange="mostrarFormularioTrabajo()">
+    <option value="q">Qin - Qout</option>
+    <option value="temperaturas">Temperaturas (T1–T4)</option>
+    <option value="eficiencia">ηt ⋅ Qin</option>
+  </select>
+  <div id="formularioTrabajo"></div>
+<p id="resultadoTrabajoNetoOtto"></p>
+<button onclick="mostrarConversionesTrabajo()">Mostrar conversiones</button>
+<div id="conversionesTrabajo" style="display: none;"></div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/script2.js"></script>
+    

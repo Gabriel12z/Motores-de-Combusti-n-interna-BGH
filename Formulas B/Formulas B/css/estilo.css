@@ -1,0 +1,79 @@
+/* Fondo animado en tonos de azul */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: linear-gradient(-45deg, #a0c8ef, #5f9bd7, #659fd8, #06386a, #04203d);
+  background-size: 400% 400%;
+  animation: moverFondo 10s ease infinite;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes moverFondo {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.contenedor-principal {
+  padding-top: 100px;
+}
+
+.btn-custom {
+  margin: 0 20px;
+  padding: 10px 30px;
+  font-size: 20px;
+}
+
+
+
+
+
+.card-blanca {
+  background-color: rgba(255, 255, 255, 0.95); /* Blanco con un toque transparente */
+  color: #111;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+  max-width: 700px;
+  margin: 100px auto;
+  padding: 40px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animación al pasar el cursor */
+.card-blanca:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card-blanca h1, .card-blanca h2 {
+  font-weight: 700;
+}
+
+.btn-custom {
+  margin: 0 20px;
+  padding: 10px 30px;
+  font-size: 20px;
+  border-radius: 50px;
+}
+
+
+
+
+
+.img-centrada {
+  display: block;
+  margin: 0 auto;
+  max-width: 250px; /* Puedes ajustar este valor según lo que necesites */
+  height: auto;
+  border-radius: 10px;
+}
